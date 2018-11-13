@@ -1,4 +1,8 @@
-function counter(state = 0, action){
+interface IAction {
+    type: string
+}
+
+function counter(state = 0, action: IAction){
 
     switch (action.type){
         case 'INCREMENT':
