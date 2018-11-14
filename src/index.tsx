@@ -6,21 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { createStore } from 'redux'
 
-interface IAction {
-  type: string
-}
-
-function counter(state = 0, action: IAction) {
-
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1
-    default:
-      return state
-  }
-}
+import  counter  from './reducers/counter'
 
 const store = createStore(counter)
 
