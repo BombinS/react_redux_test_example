@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
+    "test": "react-scripts-ts test --env=jsdom --coverage",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
@@ -25,5 +25,11 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "typescript": "^3.1.6"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**.{js,jsx,ts,tsx}",
+      "!**/node_modules/**"
+    ]
   }
 }

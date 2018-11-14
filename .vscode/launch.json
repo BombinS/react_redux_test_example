@@ -13,6 +13,6 @@
             "outFiles": [
                 "${workspaceFolder}/build/dist/**/*.js"
             ]
-        }
+        },
     ]
 }
