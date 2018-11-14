@@ -18,9 +18,7 @@ class App extends React.Component<any> {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Counter value={this.props.store.getState()} 
-          onIncrement={this.props.onIncrement}
-          onDecrement={this.props.onDecrement}
+          <Counter store={this.props.store}
         />
       </div>
     );

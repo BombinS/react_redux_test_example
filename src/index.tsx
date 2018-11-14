@@ -10,18 +10,9 @@ import  counter  from './reducers/counter'
 
 const store = createStore(counter)
 
-const onIncrement = () => {
-  store.dispatch({ type: 'INCREMENT' })
-  console.log(`increment callback was called. Current state: ${store.getState()}`)
-}
-const onDecrement = () => {
-  store.dispatch({ type: 'DECREMENT' })
-  console.log(`decrement callback was called. Current state: ${store.getState()}`)
-}
-
 const render = () => {
   ReactDOM.render(
-    <App store={store} onIncrement = {onIncrement} onDecrement ={onDecrement} />,
+    <App store={store}/>,
     document.getElementById('root') as HTMLElement
   );
 }
