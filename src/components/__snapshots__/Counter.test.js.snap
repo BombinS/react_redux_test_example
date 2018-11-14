@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`\`Counter\` component testing snapshot 1`] = `
+<div>
+  <div>
+    <h1>
+       Hello 
+    </h1>
+  </div>
+  <div>
+    <button
+      className="button1"
+      onClick={[Function]}
+    >
+      +
+    </button>
+    <h1
+      className="counts"
+    >
+      
+    </h1>
+    <button
+      className="button2"
+      onClick={[Function]}
+    >
+      -
+    </button>
+  </div>
+</div>
+`;
