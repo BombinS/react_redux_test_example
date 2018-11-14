@@ -1,6 +1,11 @@
 import * as React from 'react';
 
-class Counter extends React.Component<any>{
+class Counter extends React.Component<any, any>{
+
+    constructor(props : any) {
+        super(props);
+        this.state = { desc: '' };
+    }
 
     public render() {
         return (
@@ -10,7 +15,7 @@ class Counter extends React.Component<any>{
                 </div>
                 <div>
                     <button className='button1' onClick={this.onIncrement}>+</button>
-                    <h1 className='counts'>{this.props.store.getState()}</h1>
+                    <h1 className='counts'>{this.state.desc}</h1>
                     <button className='button2' onClick={this.onDecrement}>-</button>
                 </div>
             </div>
@@ -19,11 +24,16 @@ class Counter extends React.Component<any>{
 
     private onIncrement = () => {
         this.props.store.dispatch({ type: 'INCREMENT' })
-        console.log(`increment callback was called. Current state: ${this.props.store.getState()}`)
+        this.toChangeState(`Store was incremented.`)
     }
     private onDecrement = () => {
         this.props.store.dispatch({ type: 'DECREMENT' })
-        console.log(`decrement callback was called. Current state: ${this.props.store.getState()}`)
+        this.toChangeState(`Store was decremented.`)
+    }
+
+    private toChangeState(arg:string){
+        const desc = `${arg} Current value: ${this.props.store.getState()}`
+        this.setState({desc})
     }
 }
 
