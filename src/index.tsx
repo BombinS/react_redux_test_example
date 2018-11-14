@@ -5,7 +5,6 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 import { createStore } from 'redux'
-
 import  counter  from './reducers/counter'
 
 const store = createStore(counter)
