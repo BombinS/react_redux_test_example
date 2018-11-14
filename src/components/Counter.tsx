@@ -23,17 +23,23 @@ class Counter extends React.Component<any, any>{
     }
 
     private onIncrement = () => {
-        this.props.store.dispatch({ type: 'INCREMENT' })
-        this.toChangeState(`Store was incremented.`)
+        this.props.store.dispatch({ type: 'INCREMENT' });
+        this.toChangeState(`Store was incremented.`);
+        this.toDoSomething('Doing something');
     }
+
     private onDecrement = () => {
-        this.props.store.dispatch({ type: 'DECREMENT' })
-        this.toChangeState(`Store was decremented.`)
+        this.props.store.dispatch({ type: 'DECREMENT' });
+        this.toChangeState(`Store was decremented.`);
     }
 
     private toChangeState(arg:string){
-        const desc = `${arg} Current value: ${this.props.store.getState()}`
-        this.setState({desc})
+        const desc = `${arg} Current value: ${this.props.store.getState()}`;
+        this.setState({desc});
+    }
+
+    private toDoSomething = (arg:string)=> {
+        console.log(arg);
     }
 }
 

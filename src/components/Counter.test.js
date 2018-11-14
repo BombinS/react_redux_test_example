@@ -68,4 +68,28 @@ describe('`Counter` component testing', () => {
 
     })
 
+    it('Button pressed test and stub arrow function', () => {
+        // create store
+        const store = createStore(counter)
+        // initial store should be equal to 0
+        expect(store.getState()).toBe(0)
+
+        const wrapper = shallow(<Counter store={store} />);
+        wrapper.instance().toDoSomething = jest.fn();
+        wrapper.instance().forceUpdate();
+
+        // button should exist
+        expect(wrapper.find('.button1').length).toBe(1)
+
+        // increment button should store ++
+        wrapper.find('.button1').simulate('click')
+        expect(store.getState()).toBe(1)
+        expect(wrapper.instance().toDoSomething).toBeCalledWith('Doing something')
+
+        // decrement button should store --
+        wrapper.find('.button2').simulate('click')
+        expect(store.getState()).toBe(0)
+
+    })
+
 })
