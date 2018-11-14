@@ -1,5 +1,7 @@
 import * as React from 'react';
+import Counter from './components/Counter'
 import { createStore } from 'redux'
+
 import './App.css';
 
 import logo from './logo.svg';
@@ -22,17 +24,17 @@ function counter(state = 0, action: IAction) {
 
 const store = createStore(counter)
 
-document.addEventListener('click', () => {
+const onIncrement = () => {
   store.dispatch({ type: 'INCREMENT' })
-})
-
-const myAction = () => {
-  console.log(store.getState())
+  console.log(`increment callback was called. Current state: ${store.getState()}`)
+}
+const onDecrement = () => {
+  store.dispatch({ type: 'DECREMENT' })
+  console.log(`decrement callback was called. Current state: ${store.getState()}`)
 }
 
-store.subscribe(myAction)
-
 class App extends React.Component {
+
   public render() {
     return (
       <div className="App">
@@ -43,9 +45,10 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <p>
-          some text
-        </p>
+        <Counter value={store.getState()} 
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
+        />
       </div>
     );
   }
