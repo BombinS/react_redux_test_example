@@ -30,4 +30,20 @@ const todos = (state = [], action: any) => {
     }
 }
 
+const visibilityFilter = (state = 'SHOW_ALL', action: any) => {
+    switch (action.type) {
+        case 'SET_VISIBILITY_FILTER':
+            return action.filter;
+        default:
+            return state
+    }
+}
+
+const todoApp = (state: any = {}, action: any) => {
+    return {
+        todos: todos(state.todos, action),
+        visibilityFilter: visibilityFilter(state.visibilityFilter, action)
+    }
+}
+
 export default todos;
