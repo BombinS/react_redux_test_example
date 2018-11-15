@@ -3,7 +3,7 @@ const deepFreeze = require('deep-freeze');
 
 describe('test todos reducer', () => {
 
-    it('dummy test', () => {
+    it('test ADD_TODO', () => {
         const stateBefore: any = []
         deepFreeze(stateBefore)
         const action = {
@@ -17,6 +17,41 @@ describe('test todos reducer', () => {
             text: 'some text',
             completed: false
         }]
+        expect(todos(stateBefore, action)).toEqual(stateAfter)
+
+    })
+
+    it('test TOGGLE_TODO', () => {
+        const stateBefore: any = [
+            {
+                id: 0,
+                text: '1st text',
+                completed: false
+            },
+            {
+                id: 1,
+                text: '2nd text',
+                completed: false
+            }
+        ]
+        const action = {
+            type: 'TOGGLE_TODO',
+            id: 1,
+        }
+        const stateAfter = [
+            {
+                id: 0,
+                text: '1st text',
+                completed: false
+            },
+            {
+                id: 1,
+                text: '2nd text',
+                completed: true
+            }
+        ]
+        deepFreeze(stateBefore)
+        deepFreeze(action)
         expect(todos(stateBefore, action)).toEqual(stateAfter)
     })
 
