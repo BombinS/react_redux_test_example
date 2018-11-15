@@ -18,7 +18,7 @@ describe('`Counter` component testing', () => {
         // increment
         store.dispatch({ type: 'INCREMENT' })
         expect(store.getState()).toBe(1)
-        // decrement
+        // decrement 
         store.dispatch({ type: 'DECREMENT' })
         expect(store.getState()).toBe(0)
 
