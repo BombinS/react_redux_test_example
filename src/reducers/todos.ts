@@ -1,3 +1,5 @@
+import { combainReducers } from 'redux';
+
 const todo = (state: any, action: any) => {
     switch (action.type) {
         case 'ADD_TODO':
@@ -39,11 +41,9 @@ const visibilityFilter = (state = 'SHOW_ALL', action: any) => {
     }
 }
 
-const todoApp = (state: any = {}, action: any) => {
-    return {
-        todos: todos(state.todos, action),
-        visibilityFilter: visibilityFilter(state.visibilityFilter, action)
-    }
-}
+const todoApp = combainReducers({
+    todos,
+    visibilityFilter
+});
 
 export default todos;
