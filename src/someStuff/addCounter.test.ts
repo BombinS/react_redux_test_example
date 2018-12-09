@@ -1,4 +1,4 @@
-const deepFreeze = require('deep-freeze');
+import * as deepFreeze from 'deep-freeze';
 
 const addCounter = (list: any) => {
     return [...list, 0]
@@ -15,7 +15,7 @@ const incrementCounter = (list: any, index: number) => {
 describe('addCounter test', () => {
 
     it('[] => [0]]', () => {
-        let listBefore: any = []
+        const listBefore: any = []
         deepFreeze(listBefore)
         const listAfter: any = [0]
 
@@ -27,7 +27,7 @@ describe('addCounter test', () => {
 describe('removeCounter test', () => {
 
     it('[0,1,2] => [0,1]', () => {
-        let listBefore: any = [0, 1, 2]
+        const listBefore: any = [0, 1, 2]
         deepFreeze(listBefore)
         const listAfter: any = [0, 1]
 
@@ -39,7 +39,7 @@ describe('removeCounter test', () => {
 describe('incrementCounter test', () => {
 
     it('[0,1,2] => [0,2,2]', () => {
-        let listBefore: any = [0, 1, 2]
+        const listBefore: any = [0, 1, 2]
         deepFreeze(listBefore)
         const listAfter: any = [0, 2, 2]
 

@@ -1,58 +1,58 @@
 import todos from './todos'
-const deepFreeze = require('deep-freeze');
+import * as deepFreeze from 'deep-freeze';
 
 describe('test todos reducer', () => {
 
-    it('test ADD_TODO', () => {
-        const stateBefore: any = []
-        deepFreeze(stateBefore)
-        const action = {
-            type: 'ADD_TODO',
-            id: 0,
-            text: 'some text'
-        }
-        deepFreeze(action)
-        const stateAfter: any = [{
-            id: 0,
-            text: 'some text',
-            completed: false
-        }]
-        expect(todos(stateBefore, action)).toEqual(stateAfter)
+  it('test ADD_TODO', () => {
+    const stateBefore: any = []
+    deepFreeze(stateBefore)
+    const action = {
+      id: 0,
+      text: 'some text',
+      type: 'ADD_TODO',
+    }
+    deepFreeze(action)
+    const stateAfter: any = [{
+      completed: false,
+      id: 0,
+      text: 'some text',
+    }]
+    expect(todos(stateBefore, action)).toEqual(stateAfter)
 
-    })
+  })
 
-    it('test TOGGLE_TODO', () => {
-        const stateBefore: any = [
-            {
-                id: 0,
-                text: '1st text',
-                completed: false
-            },
-            {
-                id: 1,
-                text: '2nd text',
-                completed: false
-            }
-        ]
-        const action = {
-            type: 'TOGGLE_TODO',
-            id: 1,
-        }
-        const stateAfter = [
-            {
-                id: 0,
-                text: '1st text',
-                completed: false
-            },
-            {
-                id: 1,
-                text: '2nd text',
-                completed: true
-            }
-        ]
-        deepFreeze(stateBefore)
-        deepFreeze(action)
-        expect(todos(stateBefore, action)).toEqual(stateAfter)
-    })
+  it('test TOGGLE_TODO', () => {
+    const stateBefore: any = [
+      {
+        completed: false,
+        id: 0,
+        text: '1st text',
+      },
+      {
+        completed: false,
+        id: 1,
+        text: '2nd text',
+      }
+    ]
+    const action = {
+      id: 1,
+      type: 'TOGGLE_TODO',
+    }
+    const stateAfter = [
+      {
+        completed: false,
+        id: 0,
+        text: '1st text',
+      },
+      {
+        completed: true,
+        id: 1,
+        text: '2nd text',
+      }
+    ]
+    deepFreeze(stateBefore)
+    deepFreeze(action)
+    expect(todos(stateBefore, action)).toEqual(stateAfter)
+  })
 
 })
