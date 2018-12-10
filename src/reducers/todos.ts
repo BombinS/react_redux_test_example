@@ -48,6 +48,4 @@ const todoApp = combineReducers({
   visibilityFilter
 });
 
-console.log(todoApp);
-
-export default todos;
+export default todoApp;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Counter from './components/Counter'
-
+import Todo from './components/todo';
 
 import './App.css';
 
@@ -18,8 +18,14 @@ class App extends React.Component<any> {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-          <Counter store={this.props.store}
-        />
+          <div>
+            <h2>Counter example</h2>
+            <Counter store={this.props.store}/>
+          </div>
+          <div>
+            <h2>todo exapmle</h2>
+            <Todo store={this.props.store}/>
+          </div>
       </div>
     );
   }
